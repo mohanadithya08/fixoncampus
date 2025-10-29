@@ -1,0 +1,164 @@
+<!-- Save as index.html and open in browser -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FixOnCampus — Laptop Service & Support</title>
+  <meta name="description" content="FixOnCampus provides laptop repair, pickup, and on-campus support services for students and professionals." />
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      emailjs.init({ publicKey: "EEVdCJDXnfzR77ifA" });
+    })();
+  </script>
+
+  <style>
+    /* ----------------------
+       Reset + Variables
+    ---------------------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Poppins", sans-serif; }
+    :root {
+      --brand: #2563eb;
+      --light: #f8fafc;
+      --dark: #0f172a;
+      --muted: #475569;
+      --radius: 12px;
+    }
+    body { background: var(--light); color: var(--dark); line-height: 1.6; }
+    a { text-decoration: none; color: var(--brand); }
+    button { cursor: pointer; border: none; border-radius: var(--radius); padding: 10px 20px; background: var(--brand); color: #fff; font-weight: 600; transition: 0.3s; }
+    button:hover { opacity: 0.85; }
+
+    /* Header */
+    header { background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.05); padding: 15px 25px; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; }
+    header h1 { font-size: 20px; color: var(--brand); font-weight: 700; }
+    nav { display: flex; gap: 20px; }
+    nav a { color: var(--dark); font-weight: 500; }
+    nav a:hover { color: var(--brand); }
+
+    /* Hero */
+    .hero { text-align: center; padding: 80px 20px; background: linear-gradient(180deg, #eff6ff, #fff); }
+    .hero h2 { font-size: 40px; margin-bottom: 15px; }
+    .hero p { color: var(--muted); font-size: 18px; margin-bottom: 25px; }
+
+    /* Services */
+    .services { padding: 60px 20px; max-width: 1100px; margin: auto; }
+    .services h2 { text-align: center; margin-bottom: 40px; font-size: 28px; }
+    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); }
+    .card { background: #fff; padding: 25px; border-radius: var(--radius); box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+    .card:hover { transform: translateY(-3px); }
+    .card h3 { margin-bottom: 10px; color: var(--brand); }
+
+    /* Contact */
+    .contact { display: grid; gap: 30px; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); max-width: 1100px; margin: auto; padding: 60px 20px; }
+    .contact form { background: #fff; padding: 25px; border-radius: var(--radius); box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 12px; }
+    .contact input, .contact textarea { padding: 10px 12px; border: 1px solid #ccc; border-radius: var(--radius); font-size: 15px; width: 100%; }
+    .contact textarea { resize: none; }
+    .info-card { background: #fff; padding: 25px; border-radius: var(--radius); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+    /* Footer */
+    footer { text-align: center; padding: 20px; font-size: 14px; color: var(--muted); background: #f1f5f9; margin-top: 40px; }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>FixOnCampus</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Your Campus Laptop Repair Partner</h2>
+    <p>Fast, reliable, and affordable laptop repairs for students and professionals — right on your campus.</p>
+    <button onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Book a Repair</button>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Hardware Repairs</h3>
+        <p>Screen, keyboard, battery, and motherboard replacements for all laptop brands.</p>
+      </div>
+      <div class="card">
+        <h3>Software Assistance</h3>
+        <p>OS reinstallation, driver updates, and performance optimization.</p>
+      </div>
+      <div class="card">
+        <h3>Pickup & Delivery</h3>
+        <p>We offer hassle-free pickup and delivery across campus.</p>
+      </div>
+      <div class="card">
+        <h3>Student Discounts</h3>
+        <p>Exclusive repair discounts and loyalty offers for students.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <form id="contactForm" class="card">
+      <h3>Contact Us</h3>
+      <input id="name" name="from_name" placeholder="Your name" required />
+      <input id="email" name="from_email" type="email" placeholder="Email address" required />
+      <input id="phone" name="phone" placeholder="Phone number" required />
+      <input id="serial" name="serial" placeholder="Serial Number" required />
+      <input id="productid" name="productid" placeholder="Product ID" required />
+      <input id="laptop" name="laptop" placeholder="Laptop Name / Model" required />
+      <textarea id="message" name="message" rows="6" placeholder="Describe your issue or suggestion..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <aside class="info-card">
+      <h4>Reach Us</h4>
+      <p style="margin:6px 0;color:var(--muted)">Campus Office • Phone: +91 8121747434</p>
+      <p style="font-size:13px;color:var(--muted)">Email: <strong>fixoncampusaus@gmail.com</strong></p>
+      <p style="font-size:13px;color:var(--muted)">Address:
+      Aditya University,Aditya Nagar, ADB Road, Surampalem. Pin:533437
+Kakinada District, Andhra Pradesh, INDIA.</p>
+    </aside>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="services">
+    <h2>About FixOnCampus</h2>
+    <div class="card">
+      <p>FixOnCampus is a student-friendly tech support initiative helping campuses stay productive. We specialize in laptop diagnostics, repair, and maintenance — all managed through a simple online booking and pickup system.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; <span id="year"></span> FixOnCampus • All Rights Reserved
+  </footer>
+
+  <!-- JS -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm('service_n1is6yr', 'template_2590j0l', this)
+      .then(() => {
+        alert('✅ Thank you! Your message has been sent successfully.');
+        form.reset();
+      }, (error) => {
+        alert('❌ Oops! Something went wrong.\n' + JSON.stringify(error));
+      });
+    });
+  </script>
+</body>
+</html>
